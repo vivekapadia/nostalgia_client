@@ -22,10 +22,18 @@ const Form = ({ currentId, setCurrentId }) => {
 	const dispatch = useDispatch();
 	const classes = useStyles();
 
-	const clear = () => {};
+	const clear = () => {
+		setCurrentId(0);
+		setPostData({
+			creator: "",
+			title: "",
+			message: "",
+			tags: "",
+			selectedFile: "",
+		});
+	};
 
-	
-  useEffect(() => {
+	useEffect(() => {
 		if (post) setPostData(post);
 	}, [post]);
 
@@ -48,7 +56,10 @@ const Form = ({ currentId, setCurrentId }) => {
 				className={`${classes.root} ${classes.form}`}
 				onSubmit={handleSubmit}
 			>
-				<Typography variant="h6">Creating a Memory</Typography>
+				<Typography variant="h6">
+					{currentId ? `Editing "${post.title}"` : "Creating a Memory"}
+				</Typography>
+
 				<TextField
 					name="creator"
 					variant="outlined"
