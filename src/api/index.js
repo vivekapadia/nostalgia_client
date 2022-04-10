@@ -1,6 +1,10 @@
 import axios from "axios";
 
-const url = "http://localhost:5555/posts";
+// localmachine
+// const url = "http://localhost:5000/posts";
+
+// heroku
+const url = "https://nostalgiaishere.herokuapp.com/posts";
 
 export const fetchPosts = () => axios.get(url);
 export const createPost = (newPost) => axios.post(url, newPost);
