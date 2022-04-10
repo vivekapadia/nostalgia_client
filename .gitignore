@@ -12,8 +12,6 @@
 /build
 
 # misc
-commands.txt
-comments.txt
 
 .DS_Store
 .env.local
