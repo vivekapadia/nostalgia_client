@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import FileBase from "react-file-base64";
 
 import useStyles from "./styles";
-import { createPost, updatePost } from "../../actions/posts";
+import { createPost } from "../../actions/posts";
 
-const Form = ({ currentId, setCurrentId }) => {
+const Form = () => {
 	const [postData, setPostData] = useState({
 		creator: "",
 		title: "",
@@ -17,9 +17,16 @@ const Form = ({ currentId, setCurrentId }) => {
 
 	const classes = useStyles();
 
+	const dispatch = useDispatch();
+
 	const clear = () => {};
 
-	const handleSubmit = () => {};
+	const handleSubmit = (e) => {
+		// not to get refresh in browser
+		e.preventDefault();
+
+		dispatch(createPost(postData));
+	};
 
 	return (
 		<Paper className={classes.paper}>
