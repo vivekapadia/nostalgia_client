@@ -1,2 +1,6 @@
+version1
 npx create-react-app client
 npm install axios moment redux react-redux redux-thunk react-file-base64 @material-ui/core @material-ui/icons
+
+version2
+npm install jwt-decode react-google-login
