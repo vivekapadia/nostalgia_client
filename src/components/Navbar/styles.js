@@ -15,9 +15,6 @@ export default makeStyles((theme) => ({
 		color: "purple",
 		textDecoration: "none",
 	},
-	image: {
-		marginLeft: "15px",
-	},
 	toolbar: {
 		display: "flex",
 		justifyContent: "flex-end",

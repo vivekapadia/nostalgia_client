@@ -1,16 +1,21 @@
 import React from "react";
-import { Container} from "@material-ui/core";
+import { Container } from "@material-ui/core";
 
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 const App = () => {
-	
 	return (
-		<Container maxWidth="lg">
-			<Navbar />
-			<Home />
-		</Container>
+		<Router>
+			<Container maxWidth="lg">
+				<Navbar />
+				<Routes>
+					<Route path="/" exact element={<Home />} />
+				</Routes>
+			</Container>
+		</Router>
 	);
 };
 
