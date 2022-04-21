@@ -7,8 +7,11 @@ import {
 	Typography,
 	Container,
 } from "@material-ui/core";
+import { useDispatch } from "react-redux";
+
 import { GoogleLogin } from "react-google-login";
 
+import { AUTH } from "../../constants/actionTypes";
 import Icon from "./icon";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import useStyles from "./styles";
@@ -16,6 +19,7 @@ import Input from "./Input";
 
 const Auth = () => {
 	const classes = useStyles();
+	const dispatch = useDispatch();
 
 	const [showPassword, setShowPassword] = useState(false);
 	const [isSignup, setIsSignup] = useState(false);
@@ -32,7 +36,14 @@ const Auth = () => {
 	};
 
 	const googleSuccess = async (res) => {
-		console.log(res);
+		const result = res?.profileObj;
+		const token = res?.tokenId;
+
+		try {
+			dispatch({ type: AUTH, data: { result, token } });
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	const googleError = () =>
@@ -99,7 +110,7 @@ const Auth = () => {
 					</Button>
 
 					<GoogleLogin
-						clientId="GOOGLE ID "
+						clientId="1086743968502-8fojqsg6du2q97e8opquvt3k263qsovv.apps.googleusercontent.com"
 						render={(renderProps) => (
 							<Button
 								className={classes.googleButton}
