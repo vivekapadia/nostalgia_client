@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { AppBar, Typography, Toolbar, Avatar, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
@@ -6,9 +6,10 @@ import useStyles from "./styles";
 import nostalgia from "../../images/nostalgia.png";
 
 const Navbar = () => {
-	const classes = useStyles();
+	const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+	console.log(user);
 
-	const user = null;
+	const classes = useStyles();
 
 	return (
 		<AppBar className={classes.appBar} position="static" color="inherit">
@@ -35,7 +36,12 @@ const Navbar = () => {
 						</Button>
 					</div>
 				) : (
-					<Button component={Link} to="/auth" variant="contained" color="primary">
+					<Button
+						component={Link}
+						to="/auth"
+						variant="contained"
+						color="primary"
+					>
 						Sign In
 					</Button>
 				)}
