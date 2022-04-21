@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AppBar, Typography, Toolbar, Avatar, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
@@ -8,6 +8,14 @@ import nostalgia from "../../images/nostalgia.png";
 const Navbar = () => {
 	const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 	console.log(user);
+
+	useEffect(() => {
+		const token = user?.token;
+
+		// JWT...
+
+		setUser(JSON.parse(localStorage.getItem("profile")));
+	}, []);
 
 	const classes = useStyles();
 

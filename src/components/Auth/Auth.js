@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 
+import { useNavigate } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
 
 import { AUTH } from "../../constants/actionTypes";
@@ -20,6 +21,7 @@ import Input from "./Input";
 const Auth = () => {
 	const classes = useStyles();
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const [showPassword, setShowPassword] = useState(false);
 	const [isSignup, setIsSignup] = useState(false);
@@ -41,6 +43,9 @@ const Auth = () => {
 
 		try {
 			dispatch({ type: AUTH, data: { result, token } });
+
+			navigate("/");
+			window.location.reload(false);
 		} catch (error) {
 			console.log(error);
 		}
