@@ -23,11 +23,9 @@ const Navbar = () => {
 
 	return (
 		<AppBar className={classes.appBar} position="static" color="inherit">
-			<div className={classes.brandContainer}>
-				<Typography component={Link} to="/">
-					<img src={nostalgia} alt="icon" height="70" />
-				</Typography>
-			</div>
+			<Link to="/">
+				<img src={nostalgia} alt="icon" height="60" />
+			</Link>
 			<Toolbar className={classes.toolbar}>
 				{user?.result ? (
 					<div className={classes.profile}>
