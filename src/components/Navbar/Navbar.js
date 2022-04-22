@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AppBar, Typography, Toolbar, Avatar, Button } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import useStyles from "./styles";
 import nostalgia from "../../images/nostalgia.png";
@@ -9,13 +9,15 @@ const Navbar = () => {
 	const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 	console.log(user);
 
+	const location = useLocation();
+
 	useEffect(() => {
 		const token = user?.token;
 
 		// JWT...
 
 		setUser(JSON.parse(localStorage.getItem("profile")));
-	}, []);
+	}, [location]);
 
 	const classes = useStyles();
 
