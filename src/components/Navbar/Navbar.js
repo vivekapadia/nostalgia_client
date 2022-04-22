@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { AppBar, Typography, Toolbar, Avatar, Button } from "@material-ui/core";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate ,useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import useStyles from "./styles";
 import nostalgia from "../../images/nostalgia.png";
 
 const Navbar = () => {
 	const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
-	console.log(user);
-
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const location = useLocation();
+
+	const Logout = () => {
+		dispatch({ type: "LOGOUT" });
+
+		navigate("/");
+		setUser(null);
+	}
 
 	useEffect(() => {
 		const token = user?.token;
@@ -39,7 +47,7 @@ const Navbar = () => {
 						<Typography className={classes.userName} variant="h6">
 							{user?.result.name}
 						</Typography>
-						<Button variant="contained" color="secondary" onClick={() => {}}>
+						<Button variant="contained" color="secondary" onClick={Logout}>
 							Logout
 						</Button>
 					</div>
