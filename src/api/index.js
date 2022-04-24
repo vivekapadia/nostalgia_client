@@ -1,11 +1,11 @@
 import axios from "axios";
-const API = axios.create({ baseURL: "http://localhost:5000" });
+const API = axios.create({ baseURL: "https://nostalgiaishere.herokuapp.com" });
 
 // localmachine
-// const url = "http://localhost:5000/posts";
+// const url = "http://localhost:5000";
 
 // heroku
-// const url = "https://nostalgiaishere.herokuapp.com/posts";
+// const url = "https://nostalgiaishere.herokuapp.com";
 
 API.interceptors.request.use((req) => {
 	if (localStorage.getItem("profile")) {
