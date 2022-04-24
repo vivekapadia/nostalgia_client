@@ -40,14 +40,14 @@ const Form = ({ currentId, setCurrentId }) => {
 		// not to get refresh in browser
 		e.preventDefault();
 
-		if (currentId === 0) {
-			dispatch(createPost({ ...postData, name: user?.result?.name }));
-		} else {
+		if (currentId) {
 			dispatch(
 				updatePost(currentId, { ...postData, name: user?.result?.name })
 			);
+		} else {
+			dispatch(createPost({ ...postData, name: user?.result?.name }));
 		}
-		
+
 		clear();
 	};
 

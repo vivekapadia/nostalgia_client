@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AppBar, Typography, Toolbar, Avatar, Button } from "@material-ui/core";
-import { Link, useNavigate ,useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import useStyles from "./styles";
@@ -17,7 +17,7 @@ const Navbar = () => {
 
 		navigate("/");
 		setUser(null);
-	}
+	};
 
 	useEffect(() => {
 		const token = user?.token;
