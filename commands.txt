@@ -4,3 +4,6 @@ npm install axios moment redux react-redux redux-thunk react-file-base64 @materi
 
 version2
 npm install jwt-decode react-google-login react-router-dom
+
+version3
+npm install @material-ui/lab material-ui-chip-input
